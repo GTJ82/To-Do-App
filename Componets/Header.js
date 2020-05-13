@@ -11,7 +11,7 @@ const Header = ({ title }) => {
 
 const styles = StyleSheet.create({
     header: {
-        backgroundColor: "skyblue",
+    
         height: 75,
         padding: 15
 
@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
     text: {
         fontSize: 30,
         textAlign: 'center',
+        color: '#fce803'
 
     }
 });
