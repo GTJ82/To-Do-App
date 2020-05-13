@@ -1,13 +1,15 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-import Header from './ios/Componets/Header';
+import Header from './Componets/Header';
+import TodoItem from './Componets/Todoitem';
 
 const App = () => {
   return (
     <View style={styles.container}>
       <Header 
       title="Gotta get this done!"/>
+      <TodoItem />
     </View>
   )
 };
