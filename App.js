@@ -1,42 +1,41 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, FlatList } from 'react-native';
 import { v4 as uuidv4 } from 'uuid';
 
 
 
 import Header from './Componets/Header';
-import TodoItem from './Componets/Todoitem';
-import background from './Images/sunrise-in-the-smoky-mountains.jpg'
+import AddItem from './Componets/AddItem';
+import background from './Images/sunrise-in-the-smoky-mountains.jpg';
+import ListItem from './Componets/ListItem';
 
 
-// const deleteItem = (id) => {
-//   setItems(prevItems => {
-//     return prevItems.filter(item => item.id != id)
-//   })
-// }
-
-// const addItem = (id) => {
-//   setItems(prevItems) => {
-//     return (
-
-//     )
-//   }
-// }
 
 const App = () => {
 
-  // const { items, setItems } = useState([
-  //   { id: uuidv4(), text: "" }
-  // ]);
-
+  const data = [
+    {
+      id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+      title: 'First Item',
+    },
+    {
+      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+      title: 'Second Item',
+    },
+    {
+      id: '58694a0f-3da1-471f-bd96-145571e29d72',
+      title: 'Third Item',
+    },
+  ];
 
   return (
     <View style={styles.container}>
       <ImageBackground source={background} style={styles.image}>
         <Header
           title="Gotta get this done!" />
-        <TodoItem />
-        
+        <AddItem />
+       <ListItem />
+
       </ImageBackground>
     </View>
   )

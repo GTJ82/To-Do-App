@@ -11,12 +11,13 @@ const Header = ({ title }) => {
 
 const styles = StyleSheet.create({
     header: {
-    
-        height: 75,
-        padding: 15
+        flex: 1,
+        justifyContent: 'flex-start',
+        paddingTop: 25
 
     },
     text: {
+
         fontSize: 30,
         textAlign: 'center',
         color: '#fce803'

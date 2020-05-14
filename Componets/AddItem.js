@@ -3,21 +3,25 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity, Button, } from 're
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 
 
-const TodoItem = () => {
+const AddItem = () => {
     return (
-        <View>
+        <View style={styles.addItem}>
             <TextInput style={styles.inputText} placeholder="Add item to list"/>
             <TouchableOpacity>
-                <Text style={styles.text}><Icon style={styles.icon}name="plus" size={20}/>  Add Item</Text>
+                <Text style={styles.text}><Icon name="plus" size={20} color="#94fc03"/>   Add Item</Text>
             </TouchableOpacity>
         </View>
     )
 };
 
 const styles = StyleSheet.create({
+    addItem: {
+        flex: 1,
+        
+    },
     inputText: {
         fontSize: 20,
-        backgroundColor: "white" 
+        backgroundColor: "white"
         
     },
     text: {
@@ -30,4 +34,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default TodoItem;
+export default AddItem;
