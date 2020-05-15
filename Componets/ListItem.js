@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 
-const ListItem = (props) => {
+const ListItem = ({ item }) => {
+
+
+
     return (
         <TouchableOpacity style={styles.listItem}>
             <View style={styles.listItemView}>
-                <Text style={styles.text}>{props.items}</Text>
+                <Text>{item.name}</Text>
                 <Icon
 
                     name='times'
@@ -22,25 +25,27 @@ const ListItem = (props) => {
 
 const styles = StyleSheet.create({
     listItem: {
-
+        alignItems: 'center',
         height: 40,
-        bottom: 300,
-        opacity: .8,
 
 
     },
     listItemView: {
+        width: 300,
+        borderWidth: 1,
         justifyContent: 'center',
         flexDirection: 'row',
-        alignItems: 'center',
+
+
+        backgroundColor: "white",
 
     },
-    text: {
-        fontSize: 30,
-        color: '#fce803',
-        paddingRight: 20,
+    // itemText: {
+    //     fontSize: 30,
 
-    },
+
+
+    // },
 
 
 });

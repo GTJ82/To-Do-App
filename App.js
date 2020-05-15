@@ -13,20 +13,14 @@ import ListItem from './Componets/ListItem';
 
 const App = () => {
 
-  const data = [
-    {
-      id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-      title: 'First Item',
-    },
-    {
-      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-      title: 'Second Item',
-    },
-    {
-      id: '58694a0f-3da1-471f-bd96-145571e29d72',
-      title: 'Third Item',
-    },
-  ];
+  const [item, setItems] = useState([
+    { id: 1, name: "work" },
+    { id: 2, name: "gym" },
+    { id: 3, name: "shop" },
+  ])
+
+  
+
 
   return (
     <View style={styles.container}>
@@ -34,7 +28,11 @@ const App = () => {
         <Header
           title="Gotta get this done!" />
         <AddItem />
-       <ListItem />
+        <FlatList
+          data={item}
+          renderItem={({ item }) => <ListItem item={item.name} />}
+          
+        />
 
       </ImageBackground>
     </View>
@@ -46,7 +44,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 60
+
   },
   image: {
     flex: 1,
