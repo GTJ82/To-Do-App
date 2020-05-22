@@ -1,6 +1,9 @@
+
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, ImageBackground, FlatList } from 'react-native';
+import 'react-native-get-random-values';
 import { v4 as uuidv4 } from 'uuid';
+
 
 
 
@@ -13,13 +16,24 @@ import ListItem from './Componets/ListItem';
 
 const App = () => {
 
+  
+
   const [item, setItems] = useState([
-    { id: 1, name: "work" },
-    { id: 2, name: "gym" },
-    { id: 3, name: "shop" },
+    {
+      id: uuidv4(),
+      name: "work"
+    },
+    {
+      id: uuidv4(),
+      name: "gym"
+    },
+    {
+      id: uuidv4(),
+      name: "study"
+    }
   ])
 
-  
+
 
 
   return (
@@ -31,7 +45,9 @@ const App = () => {
         <FlatList
           data={item}
           renderItem={({ item }) => <ListItem item={item.name} />}
-          
+
+          keyExtractor={(item, index) => item.id}
+
         />
 
       </ImageBackground>

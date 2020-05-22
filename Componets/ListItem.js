@@ -9,13 +9,13 @@ const ListItem = ({ item }) => {
     return (
         <TouchableOpacity style={styles.listItem}>
             <View style={styles.listItemView}>
-                <Text>{item.name}</Text>
-                <Icon
+                <Text style={styles.itemText}>{item.name}</Text>
+                {/* <Icon
 
                     name='times'
                     color='red'
                     size={25}>
-                </Icon>
+                </Icon> */}
 
 
             </View>
@@ -35,17 +35,19 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         justifyContent: 'center',
         flexDirection: 'row',
+       
 
 
         backgroundColor: "white",
 
     },
-    // itemText: {
-    //     fontSize: 30,
+    itemText: {
+        fontSize: 30,
+        color: 'black',
 
 
 
-    // },
+    },
 
 
 });
