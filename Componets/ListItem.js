@@ -19,17 +19,12 @@ const styles = StyleSheet.create({
     listItem: {
         alignItems: 'center',
         height: 40,
-
-
     },
     listItemView: {
         width: 300,
         borderWidth: 1,
         justifyContent: 'center',
         flexDirection: 'row',
-
-
-       
         backgroundColor: "white",
 
     },
