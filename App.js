@@ -20,10 +20,10 @@ const App = () => {
 
 
   const [item, setItems] = useState([
-    {
-      id: uuidv4(),
-      name: "work"
-    },
+    // {
+    //   id: uuidv4(),
+    //   name: ''
+    // },
     {
       id: uuidv4(),
       name: "gym"
@@ -32,8 +32,19 @@ const App = () => {
       id: uuidv4(),
       name: "study"
     }
-  ])
-  
+  ]);
+
+  const addItem = (text) => {
+    setItems(prevItems => {
+      return [{ id: uuidv4(), text }, ...prevItems]
+    })
+  }
+
+  const deleteItem = (id) => {
+    setItems(prevVal => {
+      return prevVal.filter(item => item.id != id)
+    })
+  }
 
 
 
@@ -42,12 +53,16 @@ const App = () => {
       <ImageBackground source={background} style={styles.image}>
         <Header
           title="Gotta get this done!" />
-        <AddItem />
+        <AddItem
+          addItem={addItem}
+        />
         <FlatList
           data={item}
-          renderItem={({ item }) => <ListItem item={item.name}/>}
+          renderItem={({ item }) => (
+            <ListItem item={item.name} deleteItem={deleteItem} />
+          )}
         />
-        
+
       </ImageBackground>
     </View>
   )

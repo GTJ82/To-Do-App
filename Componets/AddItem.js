@@ -1,30 +1,35 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Button } from 'react-native';
-import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import ListItem from './ListItem';
+import { v4 as uuidv4 } from 'uuid';
 
 
-const AddItem = () => {
+const AddItem = ( addItems ) => {
 
-    const [item, setItem] = useState("");
+    const [text, setText] = useState("");
 
-    const pressHandler = () => {
-        setItem()
-    }
+    const onChange = (inputVal) => setText(inputVal);
+  
 
+    
     return (
         <View style={styles.addItemView}>
             <TextInput
                 style={styles.inputText}
                 placeholder="Add item to list..."
-                onChangeText={(val) => setItem(val)}
-
-            />
+                onChangeText={onChange}
+                
+                />
             <TouchableOpacity style={styles.button}>
-                <Button title="Add Item" />
+                <Button title="Add Item" onPress={() => addItem(text) } />
+                
             </TouchableOpacity>
         </View>
-    )
+                
+);
+
+
+
 };
 
 const styles = StyleSheet.create({
