@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, ImageBackground, FlatList } from 'react-native';
 import 'react-native-get-random-values';
 import { v4 as uuidv4 } from 'uuid';
-import {uuid} from 'uuidv4';
+import { uuid } from 'uuidv4';
 
 
 
@@ -17,23 +17,23 @@ import ListItem from './Componets/ListItem';
 
 const App = () => {
 
-  
+
 
   const [item, setItems] = useState([
     {
       id: uuidv4(),
       name: "work"
     },
-    // {
-    //   id: uuidv4(),
-    //   name: "gym"
-    // },
-    // {
-    //   id: uuidv4(),
-    //   name: "study"
-    // }
+    {
+      id: uuidv4(),
+      name: "gym"
+    },
+    {
+      id: uuidv4(),
+      name: "study"
+    }
   ])
-
+  
 
 
 
@@ -43,9 +43,11 @@ const App = () => {
         <Header
           title="Gotta get this done!" />
         <AddItem />
-        <ListItem
-        title={item.name}
+        <FlatList
+          data={item}
+          renderItem={({ item }) => <ListItem item={item.name}/>}
         />
+        
       </ImageBackground>
     </View>
   )
