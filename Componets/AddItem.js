@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Button } from 'react-native';
-import ListItem from './ListItem';
-import { v4 as uuidv4 } from 'uuid';
 
 
-const AddItem = ( addItems ) => {
 
+const AddItem = (props) => {
+    
     const [text, setText] = useState("");
 
-    const onChange = (inputVal) => setText(inputVal);
-  
+    const onChange = inputVal => setText(inputVal);
+
+console.log(text);
+
 
     
     return (
@@ -18,19 +19,20 @@ const AddItem = ( addItems ) => {
                 style={styles.inputText}
                 placeholder="Add item to list..."
                 onChangeText={onChange}
-                
-                />
+
+            />
             <TouchableOpacity style={styles.button}>
-                <Button title="Add Item" onPress={() => addItem(text) } />
-                
+                <Button title="Add Item" onPress={() => props.addItem(text)} />
+
             </TouchableOpacity>
         </View>
-                
-);
+
+    );
 
 
 
 };
+
 
 const styles = StyleSheet.create({
     addItemView: {

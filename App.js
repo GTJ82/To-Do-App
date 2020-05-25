@@ -33,10 +33,12 @@ const App = () => {
       name: "study"
     }
   ]);
+// console.log(item);
 
-  const addItem = (text) => {
+  const addItems = (text) => {
     setItems(prevItems => {
-      return [{ id: uuidv4(), text }, ...prevItems]
+      return [{ id: uuidv4(), name: text }, ...prevItems]
+
     })
   }
 
@@ -54,7 +56,7 @@ const App = () => {
         <Header
           title="Gotta get this done!" />
         <AddItem
-          addItem={addItem}
+          addItem={addItems}
         />
         <FlatList
           data={item}
