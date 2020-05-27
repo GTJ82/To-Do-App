@@ -3,27 +3,26 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity, Button } from 'rea
 
 
 
+
 const AddItem = (props) => {
-    
+
     const [text, setText] = useState("");
 
     const onChange = inputVal => setText(inputVal);
 
-console.log(text);
-
-
     
+
     return (
         <View style={styles.addItemView}>
             <TextInput
                 style={styles.inputText}
                 placeholder="Add item to list..."
                 onChangeText={onChange}
-
+                clearTextOnFocus={true}
+                
             />
             <TouchableOpacity style={styles.button}>
                 <Button title="Add Item" onPress={() => props.addItem(text)} />
-
             </TouchableOpacity>
         </View>
 

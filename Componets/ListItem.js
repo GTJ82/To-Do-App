@@ -1,23 +1,26 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, Button } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 // import Icon from 'react-native-vector-icons/dist/FontAwesome';
+
 
 const ListItem = ({ item, deleteItem }) => {
 
-
+    
 
     return (
-        <TouchableOpacity style={styles.listItem}>
+
+        <View style={styles.listItem}>
             <View style={styles.listItemView}>
-                <Text style={styles.itemText}>{item}</Text>
+                <Text style={styles.itemText}>{item.name}</Text>
             </View>
             <View style={styles.button}>
-                <Button
-                    title="remove"
-                    onPress={() => deleteItem(item.id)} />
+                <TouchableOpacity onPress={() => deleteItem(item.id)}>
+                    <Text>Remove</Text>
+                </TouchableOpacity>
             </View>
-        </TouchableOpacity>
+        </View>
     )
+
 };
 
 const styles = StyleSheet.create({
