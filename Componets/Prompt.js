@@ -8,6 +8,7 @@ const Prompt = () => {
         </View>
     )
 };
+console.log(Prompt);
 
 const styles = StyleSheet.create({
 
@@ -15,9 +16,9 @@ const styles = StyleSheet.create({
         fontSize: 30,
     },
     promptView: {
-        
+
         alignItems: "center",
-        
+
     }
 });
 
