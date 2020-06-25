@@ -2,15 +2,13 @@ import React, { useState } from 'react';
 import { View, StyleSheet, ImageBackground, FlatList, Alert, useEffect } from 'react-native';
 import 'react-native-get-random-values';
 import { v4 as uuidv4 } from 'uuid';
-// import axios from 'axios';
-
 
 
 import Header from './Componets/Header';
 import AddItem from './Componets/AddItem';
 import background from './Images/sunrise-in-the-smoky-mountains.jpg';
 import ListItem from './Componets/ListItem';
-import Prompt from './Componets/Prompt';
+
 // import Weather from "./Componets/Weather";
 
 
@@ -22,7 +20,15 @@ const App = () => {
       name: ''
     },
   ]);
-  console.log(item);
+  // console.log(item);
+
+  const [current, setCurrent] = useState([])
+
+  const displayWeather = () => {
+    setCurrent(data.results)
+
+  }
+
 
   const addItems = (text) => {
 
@@ -43,19 +49,17 @@ const App = () => {
     })
   }
 
-  const [current, setCurrent] = useState([])
 
-  useEffect(() => {
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=charlotte,north carolina&appid=b8c9d4a9c8777417e7ed2767ad7f931d&units=imperial')
-      .then(res => res.json())
-      .then(data => {
-        console.log(data)
-        setCurrent(data.results)
-      })
+  // useEffect(() => {
+  //   fetch('https://api.openweathermap.org/data/2.5/weather?q=charlotte,north carolina&appid=b8c9d4a9c8777417e7ed2767ad7f931d&units=imperial')
+  //     .then(res => res.json())
+  //     .then(json => {
+  //       // setCurrent(json.results)
+  //       console.log(json.results)
+  //     })
+  //     .catch((error) => console.error(error))
 
-  }, [])
-
-
+  // }, [])
 
 
 
@@ -64,7 +68,6 @@ const App = () => {
       <ImageBackground source={background} style={styles.image}>
         <Header
           title="Gotta get this done!" />
-        <Text>{current.weather.main}</Text>
         <AddItem
           addItem={addItems}
         />

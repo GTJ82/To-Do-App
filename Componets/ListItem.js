@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Button } from 'react-native';
 // import Icon from 'react-native-vector-icons/dist/FontAwesome';
 
 
 const ListItem = ({ item, deleteItem }) => {
 
-    
+
 
     return (
 
@@ -14,8 +14,8 @@ const ListItem = ({ item, deleteItem }) => {
                 <Text style={styles.itemText}>{item.name}</Text>
             </View>
             <View style={styles.button}>
-                <TouchableOpacity onPress={() => deleteItem(item.id)}>
-                    <Text>Remove</Text>
+                <TouchableOpacity>
+                    <Button title="Remove" color="black" onPress={() => deleteItem(item.id)} />
                 </TouchableOpacity>
             </View>
         </View>
@@ -28,18 +28,35 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         height: 40,
         flexDirection: 'row',
+        justifyContent: 'center',
     },
     listItemView: {
-        width: 300,
         borderWidth: 1,
+        borderRadius: 5,
         justifyContent: 'center',
+        alignItems: 'center',
         flexDirection: 'row',
         backgroundColor: "white",
+        width: 250,
+        height: 30,
 
+
+    },
+    itemText: {
+        fontSize: 20,
+        fontFamily: 'AppleSDGothicNeo-SemiBold',
 
     },
     button: {
-        borderWidth: 1,
+        alignItems: "center",
+        justifyContent: "center",
+        height: 35,
+        width: 85,
+        backgroundColor: "#bbc7ad",
+        borderRadius: 10,
+        borderWidth: 2,
+        borderColor: "#99a191",
+        marginLeft: 20,
     }
 
 });

@@ -7,23 +7,25 @@ const Header = ({ title }) => {
             <Text style={styles.text}>{title}</Text>
         </View>
     )
-   
-    
+
+
 };
 
 const styles = StyleSheet.create({
     header: {
         flex: 1,
         justifyContent: 'flex-start',
-        paddingTop: 55,
-        borderWidth: 1,
-        
+        paddingTop: 65,
+
+
     },
     text: {
 
         fontSize: 30,
         textAlign: 'center',
-        color: '#fce803'
+        color: '#fce803',
+        fontFamily: 'AppleSDGothicNeo-SemiBold',
+
 
     }
 });
