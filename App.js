@@ -3,13 +3,15 @@ import { View, StyleSheet, ImageBackground, FlatList, Alert, useEffect } from 'r
 import 'react-native-get-random-values';
 import { v4 as uuidv4 } from 'uuid';
 
-
+// Componets //
 import Header from './Componets/Header';
 import AddItem from './Componets/AddItem';
-import background from './Images/sunrise-in-the-smoky-mountains.jpg';
 import ListItem from './Componets/ListItem';
 
-// import Weather from "./Componets/Weather";
+// Images //
+import background from './Images/sunrise-in-the-smoky-mountains.jpg';
+import background2 from './Images/mountains_afternoon.jpeg'
+
 
 
 const App = () => {
@@ -22,12 +24,23 @@ const App = () => {
   ]);
   // console.log(item);
 
-  const [current, setCurrent] = useState([])
+  const [image, setImage] = useState(background)
 
-  const displayWeather = () => {
-    setCurrent(data.results)
 
+
+  const imageDisplay = () => {
+
+    var date = new Date();
+    var current_hour = date.getHours();
+    if (current_hour <= 11) {
+      image(background)
+    } else if (current_hour < 17) {
+      setImage(background2)
+    } else {
+      setImage(background3)
+    }
   }
+
 
 
   const addItems = (text) => {
@@ -65,7 +78,7 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      <ImageBackground source={background} style={styles.image}>
+      <ImageBackground source={imageDisplay} style={styles.image}>
         <Header
           title="Gotta get this done!" />
         <AddItem

@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
         fontFamily: 'AppleSDGothicNeo-SemiBold',
 
 
+
     },
     button: {
         alignItems: "center",
