@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { View, StyleSheet, ImageBackground, FlatList, Alert, useEffect } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, StyleSheet, ImageBackground, FlatList, Alert } from 'react-native';
 import 'react-native-get-random-values';
 import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios'
 
 // Componets //
 import Header from './Componets/Header';
@@ -25,6 +26,19 @@ const App = () => {
   // console.log(item);
 
   const [image, setImage] = useState(background)
+  // const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      const result = await axios('https://api.openweathermap.org/data/2.5/weather?q=charlotte,north carolina&appid=b8c9d4a9c8777417e7ed2767ad7f931d&units=imperial')
+
+      console.log(result.data);
+      // isLoading(false);
+
+    }
+    fetchItems();
+  }, [])
+
 
 
 
@@ -39,7 +53,10 @@ const App = () => {
     } else {
       setImage(background3)
     }
-  }
+
+  };
+  // imageDisplay()
+
 
 
 
@@ -78,7 +95,7 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      <ImageBackground source={imageDisplay} style={styles.image}>
+      <ImageBackground source={image} style={styles.image}>
         <Header
           title="Gotta get this done!" />
         <AddItem
